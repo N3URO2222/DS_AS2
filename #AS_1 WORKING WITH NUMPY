@@ -1,0 +1,63 @@
+
+
+import numpy as np
+
+# 1. Create a 1D NumPy array with integers from 1 to 20
+arr_1d = np.arange(1, 21)
+
+# 1a. Calculate the sum, mean, median, and standard deviation
+print("--- Question 1 ---")
+print(f"1D Array: {arr_1d}")
+print(f"Sum: {np.sum(arr_1d)}")
+print(f"Mean: {np.mean(arr_1d)}")
+print(f"Median: {np.median(arr_1d)}")
+print(f"Standard Deviation: {np.std(arr_1d):.2f}\n")
+
+# 1b. Find the indices of elements greater than 10
+indices = np.where(arr_1d > 10)
+print(f"Indices of elements > 10: {indices[0]}\n")
+
+
+# 2. Create a 2D NumPy array of shape 4 X 4 with numbers ranging from 1 to 16
+arr_2d = np.arange(1, 17).reshape(4, 4)
+
+# 2a. Print the array
+print("--- Question 2 ---")
+print("Original 4x4 Array:\n", arr_2d)
+
+# 2b. Find the transpose of the array
+print("Transpose of the Array:\n", arr_2d.T)
+
+# 2c. Calculate row-wise and column-wise sums
+print("Row-wise sums:", np.sum(arr_2d, axis=1))
+print("Column-wise sums:", np.sum(arr_2d, axis=0), "\n")
+
+
+# 3. Create two 3 X 3 arrays filled with random integers between 1 and 20
+np.random.seed(42)  # Setting seed for reproducible results
+matrix_A = np.random.randint(1, 21, size=(3, 3))
+matrix_B = np.random.randint(1, 21, size=(3, 3))
+
+print("--- Question 3 ---")
+print("Matrix A:\n", matrix_A)
+print("Matrix B:\n", matrix_B)
+
+# 3a. Element-wise addition, subtraction, and multiplication
+print("Element-wise Addition:\n", matrix_A + matrix_B)
+print("Element-wise Subtraction:\n", matrix_A - matrix_B)
+print("Element-wise Multiplication:\n", matrix_A * matrix_B)
+
+# 3b. Compute the dot product
+print("Dot Product:\n", np.dot(matrix_A, matrix_B), "\n")
+
+
+# 4. Reshape a 1D array of size 12 into a 3 X 4 2D array and slice
+arr_size_12 = np.arange(1, 13)
+reshaped_arr = arr_size_12.reshape(3, 4)
+
+print("--- Question 4 ---")
+print("Reshaped 3x4 Array:\n", reshaped_arr)
+
+# Slice the first two rows and last two columns
+sliced_arr = reshaped_arr[:2, -2:]
+print("Sliced Array (First 2 rows, Last 2 columns):\n", sliced_arr)
