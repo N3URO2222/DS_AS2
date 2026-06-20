@@ -1,0 +1,52 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+# 1. Simple Line Plot
+x = [1, 2, 3, 4, 5]
+y = [10, 15, 25, 30, 50]
+
+plt.figure(figsize=(6, 4))
+plt.plot(x, y, marker='o', color='b', linestyle='-')
+plt.title("Simple Line Plot")
+plt.xlabel("X Axis")
+plt.ylabel("Y Axis")
+plt.grid(True)
+plt.show()
+
+
+# 2. Bar Graph
+students = ['John', 'Jane', 'Alice', 'Bob']
+marks = [75, 85, 60, 90]
+
+plt.figure(figsize=(6, 4))
+plt.bar(students, marks, color=['teal', 'skyblue', 'coral', 'crimson'])
+plt.title("Student Marks Distribution")
+plt.xlabel("Students")
+plt.ylabel("Marks")
+plt.show()
+
+
+# 3. Pie Chart
+regions = ['North America', 'Europe', 'Asia', 'Others']
+revenue = [45, 25, 20, 10]
+# Explode the 1st slice (North America) since it has the highest revenue (45)
+explode = (0.1, 0, 0, 0) 
+
+plt.figure(figsize=(6, 6))
+plt.pie(revenue, labels=regions, autopct='%1.1f%%', explode=explode, startangle=140, 
+        colors=['#ff9999','#66b3ff','#99ff99','#ffcc99'])
+plt.title("Company Revenue Distribution by Region")
+plt.show()
+
+
+# 4. Histogram
+np.random.seed(42)
+random_data = np.random.randint(1, 101, size=1000)
+
+plt.figure(figsize=(6, 4))
+plt.hist(random_data, bins=20, edgecolor='black', color='purple', alpha=0.7)
+plt.title("Frequency Distribution of Random Integers")
+plt.xlabel("Value Range")
+plt.ylabel("Frequency")
+plt.grid(axis='y', alpha=0.75)
+plt.show()
