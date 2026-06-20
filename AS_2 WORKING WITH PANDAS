@@ -1,0 +1,49 @@
+import pandas as pd
+
+# 1. Create a DataFrame with the given data
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie', 'Diana', 'Eve'],
+    'Age': [24, 27, 22, 32, 29],
+    'Department': ['HR', 'Finance', 'IT', 'Marketing', 'HR'],
+    'Salary': [45000, 54000, 50000, 62000, 47000]
+}
+df = pd.DataFrame(data)
+
+# 1a. Print the first five rows of the DataFrame
+print("--- Question 1a: First 5 Rows ---")
+print(df.head(), "\n")
+
+# 1b. Get the summary statistics of 'Age' and 'Salary' columns
+print("--- Question 1b: Summary Statistics ---")
+print(df[['Age', 'Salary']].describe(), "\n")
+
+# 1c. Calculate the average salary of employees in the 'HR' department
+hr_avg_salary = df[df['Department'] == 'HR']['Salary'].mean()
+print(f"--- Question 1c: Average Salary in HR --- \n{hr_avg_salary}\n")
+
+
+# 2. Add a new column, 'Bonus', which is 10% of the salary
+df['Bonus'] = df['Salary'] * 0.10
+print("--- Question 2: Added Bonus Column ---")
+print(df, "\n")
+
+
+# 3. Filter the DataFrame to show employees aged between 25 and 30
+filtered_df = df[(df['Age'] >= 25) & (df['Age'] <= 30)]
+print("--- Question 3: Filtered Employees (Age 25-30) ---")
+print(filtered_df, "\n")
+
+
+# 4. Group the data by 'Department' and calculate average salary
+grouped_df = df.groupby('Department')['Salary'].mean().reset_index()
+print("--- Question 4: Average Salary by Department ---")
+print(grouped_df, "\n")
+
+
+# 5. Sort the DataFrame by 'Salary' in ascending order and save to CSV
+sorted_df = df.sort_values(by='Salary', ascending=True)
+sorted_df.to_csv('sorted_employees.csv', index=False)
+
+print("--- Question 5: Sorted DataFrame ---")
+print(sorted_df)
+print("\nResult successfully saved to 'sorted_employees.csv'")
